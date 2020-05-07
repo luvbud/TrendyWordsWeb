@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ApiService from "../../ApiService";
 
 class UserListComponent extends Component{
     constructor(props){
@@ -87,3 +88,5 @@ class UserListComponent extends Component{
         );
     }
 }
+
+export default UserListComponent;
