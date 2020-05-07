@@ -6,24 +6,22 @@ import EditUserComponent from "../user/EditUserComponent";
 
 const AppRouter = () => {
     return(
-        <div>
+        <div style={style}>
             <BrowserRouter>
-            <div style={style}>
+
                 <Switch>
                     <Route exact path="/" component={UserListComponent}/>
                     <Route path="/users" component={UserListComponent}/>
                     <Route path="/add-user" component={AddUserComponent}/>
                     <Route path="/edit-user" component={EditUserComponent}/>
                 </Switch>
-            </div>
             </BrowserRouter>
         </div>
     );
 }
 
 const style = {
-    color: 'red',
-    margin: '10px'
+    marginTop: '20px'
 }
 
 export default AppRouter;
