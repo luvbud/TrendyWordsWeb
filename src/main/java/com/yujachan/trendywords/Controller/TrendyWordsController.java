@@ -18,11 +18,11 @@ public class TrendyWordsController {
 
     @Autowired
     TrendyWordsTemplate trendyWordsTemplate;
-    //...
+    //.
     @Autowired
     TrendyWordsRepository trendyWordsRepository;
 
-    @GetMapping("/")
+    @GetMapping("/users")
     public String index() {
         return "index";
     }
