@@ -1,0 +1,50 @@
+#header{
+    text-align: center;
+}
+#content {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+.subMenu-box{
+    grid-area: 1 / 1 / 2 / 2;
+}
+.words-box{
+    padding: 5px;
+    grid-area: 1 / 2 / 2 / 3;
+}
+.word{
+    border:1px solid black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 0.5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+    margin: 5px;
+}
+.word-eng{
+    /*border:1px solid black;*/
+    grid-area: 1 / 1 / 2 / 2;
+}
+.word-mean{
+    /*border:1px solid black;*/
+    grid-area: 1 / 2 / 2 / 3;
+}
+.word-icon{
+    /*border:1px solid black;*/
+    grid-area: 1 / 3 / 2 / 4;
+}
+#add{
+    margin: 5px;
+    border: 8px solid #FDE4A2;
+}
+#add a{
+    text-decoration: none;
+    color: #FDE4A2;
+}
+#add a:hover{
+    text-decoration: underline;
+    color: black;
+}
