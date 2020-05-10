@@ -11,7 +11,6 @@ class EditUserComponent extends Component{
         super(props);
 
         this.state = {
-<<<<<<< HEAD
             name: '',
             email: '',
             userid: '',
@@ -22,14 +21,6 @@ class EditUserComponent extends Component{
             // age: '',
             // salary: '',
             // message: null
-=======
-            id: '',
-            firstName: '',
-            lastName: '',
-            age: '',
-            salary: '',
-            message: null
->>>>>>> 826ac7f42ce2fccd9ec8931254eb13cfe488292b
         }
     }
 
@@ -90,7 +81,6 @@ class EditUserComponent extends Component{
             <div>
                 <Typography variant="h4" style={style}>Edit User</Typography>
                 <form>
-<<<<<<< HEAD
                         <TextField type="text" name="name" readOnly={true}
                          fullWidth margin="normal" value={this.state.name} />
 
@@ -99,23 +89,6 @@ class EditUserComponent extends Component{
 
                         <TextField type="password" placeholder="edit your password" name="pw"
                          fullWidth margin="normal" value={this.state.pw} onChange={this.onChange} />
-=======
-
-                        <TextField type="text" name="userName" readOnly={true}
-                         fullWidth margin="normal" value={this.state.userName} />
-
-                        <TextField placeholder="edit your first name" name="firstName"
-                         fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
-
-                        <TextField placeholder="edit your last name" name="lastName"
-                         fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
-
-                        <TextField type="number" placeholder="edit your age" name="age"
-                         fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
-
-                        <TextField type="number" placeholder="edit your salary" name="salary"
-                         fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
->>>>>>> 826ac7f42ce2fccd9ec8931254eb13cfe488292b
                 
                     <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
 

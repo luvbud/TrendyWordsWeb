@@ -10,7 +10,6 @@ class AddUserComponent extends Component{
         super(props);
 
         this.state = {
-<<<<<<< HEAD
             name: '',
             email: '',
             userid: '',
@@ -22,15 +21,6 @@ class AddUserComponent extends Component{
             // age: '',
             // salary: '',
             // message: null
-=======
-            userName: '',
-            password: '',
-            firstName: '',
-            lastName: '',
-            age: '',
-            salary: '',
-            message: null
->>>>>>> 826ac7f42ce2fccd9ec8931254eb13cfe488292b
         }
     }
 
@@ -71,7 +61,6 @@ class AddUserComponent extends Component{
                 <Typography variant="h4" style={style}>Add User</Typography>
                 <form style={formContainer}>
 
-<<<<<<< HEAD
                         <TextField type="text" placeholder="please input your name" name="name" 
                          fullWidth margin="normal" value={this.state.userName} onChange={this.onChange} />
 
@@ -83,25 +72,6 @@ class AddUserComponent extends Component{
 
                         <TextField type="password" placeholder="please input your password" name="pw"
                          fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
-=======
-                        <TextField type="text" placeholder="please input your username" name="userName" 
-                         fullWidth margin="normal" value={this.state.userName} onChange={this.onChange} />
-
-                        <TextField type="password" placeholder="please input your password" name="password"
-                         fullWidth margin="normal" value={this.state.password} onChange={this.onChange} />
-
-                        <TextField placeholder="please input your first name" name="firstName"
-                         fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
-
-                        <TextField placeholder="please input your last name" name="lastName"
-                         fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
-
-                        <TextField type="number" placeholder="please input your age" name="age"
-                         fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
-
-                        <TextField type="number" placeholder="please input your salary" name="salary"
-                         fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
->>>>>>> 826ac7f42ce2fccd9ec8931254eb13cfe488292b
                 
                     <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
                 </form>
