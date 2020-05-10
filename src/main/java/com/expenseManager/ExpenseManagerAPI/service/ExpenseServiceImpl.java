@@ -1,12 +1,12 @@
-package com.yujachan.TrendyWordsWeb.service;
+package com.expenseManager.ExpenseManagerAPI.service;
 
 import java.util.List;
 
-import com.yujachan.TrendyWordsWeb.repositories.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yujachan.TrendyWordsWeb.domain.Expense;
+import com.expenseManager.ExpenseManagerAPI.domain.Expense;
+import com.expenseManager.ExpenseManagerAPI.repositories.ExpenseRepository;
 
 @Service
 public class ExpenseServiceImpl implements ExpenseService {

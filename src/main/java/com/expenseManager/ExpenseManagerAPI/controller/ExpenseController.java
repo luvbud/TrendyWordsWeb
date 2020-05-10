@@ -1,4 +1,4 @@
-package com.yujachan.TrendyWordsWeb.controller;
+package com.expenseManager.ExpenseManagerAPI.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yujachan.TrendyWordsWeb.domain.Expense;
-import com.yujachan.TrendyWordsWeb.service.ExpenseService;
+import com.expenseManager.ExpenseManagerAPI.domain.Expense;
+import com.expenseManager.ExpenseManagerAPI.service.ExpenseService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController

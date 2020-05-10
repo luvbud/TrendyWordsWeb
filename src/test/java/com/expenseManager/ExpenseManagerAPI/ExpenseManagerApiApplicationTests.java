@@ -1,4 +1,4 @@
-package com.expenseManager.TrendyWordsWeb;
+package com.expenseManager.ExpenseManagerAPI;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

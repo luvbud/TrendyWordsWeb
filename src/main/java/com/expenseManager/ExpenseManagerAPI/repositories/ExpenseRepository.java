@@ -1,10 +1,10 @@
-package com.yujachan.TrendyWordsWeb.repositories;
+package com.expenseManager.ExpenseManagerAPI.repositories;
 
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.yujachan.TrendyWordsWeb.domain.Expense;
+import com.expenseManager.ExpenseManagerAPI.domain.Expense;
 
 public interface ExpenseRepository extends MongoRepository<Expense, String>{
 

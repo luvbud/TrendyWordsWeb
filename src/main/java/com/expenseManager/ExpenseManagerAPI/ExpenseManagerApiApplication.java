@@ -1,12 +1,12 @@
-package com.yujachan.TrendyWordsWeb;
+package com.expenseManager.ExpenseManagerAPI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TrendyWordsWebApplication {
+public class ExpenseManagerApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TrendyWordsWebApplication.class, args);
+		SpringApplication.run(ExpenseManagerApiApplication.class, args);
 	}
 }

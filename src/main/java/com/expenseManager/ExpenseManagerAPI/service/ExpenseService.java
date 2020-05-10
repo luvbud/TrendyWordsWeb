@@ -1,8 +1,8 @@
-package com.yujachan.TrendyWordsWeb.service;
+package com.expenseManager.ExpenseManagerAPI.service;
 
 import java.util.List;
 
-import com.yujachan.TrendyWordsWeb.domain.Expense;
+import com.expenseManager.ExpenseManagerAPI.domain.Expense;
 
 public interface ExpenseService {
 	

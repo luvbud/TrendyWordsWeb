@@ -1,4 +1,4 @@
-package com.yujachan.TrendyWordsWeb.domain;
+package com.expenseManager.ExpenseManagerAPI.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
