@@ -18,7 +18,7 @@ public class TrendyWordsController {
 
     @Autowired
     TrendyWordsTemplate trendyWordsTemplate;
-
+    //...
     @Autowired
     TrendyWordsRepository trendyWordsRepository;
 
