@@ -14,6 +14,7 @@ constructor() {
     super();
   this.state = {selectedMonth:'All', selectedYear: 2016, data: [], activeTab:2016};
     this.getData = this.getData.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 componentWillReceiveProps(nextProps) {
     if(nextProps.history.location.search){
