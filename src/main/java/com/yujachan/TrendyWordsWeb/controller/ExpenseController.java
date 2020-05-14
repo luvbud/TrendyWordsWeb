@@ -21,7 +21,11 @@ import com.yujachan.TrendyWordsWeb.service.ExpenseService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+<<<<<<< HEAD
 @RequestMapping("/trendy")
+=======
+@RequestMapping("/expense")
+>>>>>>> 3dfc10969c88fffda76b1e3f1b65634bc1809b02
 public class ExpenseController {
 
 	@Autowired
