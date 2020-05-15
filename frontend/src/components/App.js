@@ -7,7 +7,8 @@ import Delete from './Delete';
 import { Tab, Tabs } from 'react-bootstrap';
 import YearTabsRouter from './tabs/yearTabsRouter';
 import MonthTabs from './tabs/monthTabs';
-import styles from '../css/App.css';
+import '../css/App.css';
+import '../css/menu.css';
 
 export default class App extends React.Component {
 constructor() {
@@ -41,7 +42,7 @@ handleSelect(selectedTab) {
      });
   }
 getData(ev, year, month){
-    axios.get('http://localhost:8080/expense/'+year+'/'+month)
+    axios.get('http://localhost:8080/words/'+year+'/'+month)
       .then(function(response) {
         ev.setState({data: response.data});
         ev.setState({selectedYear: parseInt(year)});
@@ -52,7 +53,9 @@ getData(ev, year, month){
   }
 render() {
     return (
+      
       <div>
+        <h1>Trendy Words</h1>
         <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
           <Tab eventKey={2016} title={<YearTabsRouter year='2016' />}><MonthTabs year='2016' monthlyActiveTab={this.state.selectedMonth}/></Tab>
           <Tab eventKey={2017} title={<YearTabsRouter year='2017' />}><MonthTabs year='2017' monthlyActiveTab={this.state.selectedMonth}/></Tab>
@@ -72,7 +75,7 @@ render() {
               })
             }
             </tbody>
-</table>
+        </table>
       </div>
     );
   }

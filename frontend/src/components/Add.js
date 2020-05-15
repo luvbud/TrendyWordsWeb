@@ -89,7 +89,7 @@ insertNewExpense(e) {
       month: e.state.month,
       year: e.state.year
     }
-      axios.post('http://localhost:8080/expense', expense).then(function(response) {
+      axios.post('http://localhost:8080/words', expense).then(function(response) {
         e.setState({
           messageFromServer: response.data
         });
