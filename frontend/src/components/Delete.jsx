@@ -28,7 +28,7 @@ onClick(e){
      this.delete(this);
     }
 delete(e){
-    axios.delete('http://localhost:8080/words',{
+    axios.delete('http://localhost:8080/trendywords',{
         params: { id: e.state.id }
       })
       .then(function(response) {
@@ -37,7 +37,7 @@ delete(e){
 render(){
   return (
     <Button bsStyle="danger" bsSize="small" onClick={this.onClick}>
-     <Link to={{pathname: '/', search: '?month='+this.state.month+'&year='+this.state.year}} style={{ textDecoration: 'none' }}>
+     <Link to={{pathname: '/trendywords', search: '?month='+this.state.month+'&year='+this.state.year}} style={{ textDecoration: 'none' }}>
                   <span className="glyphicon glyphicon-remove"></span>
          </Link>
     </Button>

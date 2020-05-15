@@ -87,7 +87,7 @@ update(e) {
       year: e.state.year
     }
     
-    axios.post('http://localhost:8080/words',expense).then(function(response) {
+    axios.post('http://localhost:8080/trendywords',expense).then(function(response) {
       e.setState({
         messageFromServer: response.data
       });
@@ -103,7 +103,7 @@ render() {
             onRequestClose={this.closeModal}
             contentLabel="Add Expense"
             className="Modal">
-<Link to={{pathname: '/', search: '?month='+this.state.month+'&year='+this.state.year }} style={{ textDecoration: 'none' }}>
+<Link to={{pathname: '/trendywords', search: '?month='+this.state.month+'&year='+this.state.year }} style={{ textDecoration: 'none' }}>
             <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span className="closebtn glyphicon glyphicon-remove"></span></Button>
           </Link><br/>
 <fieldset>
@@ -152,7 +152,7 @@ render() {
            className="Modal">
 <div className='button-center'>
               <h3>{this.state.messageFromServer}</h3>
-              <Link to={{pathname: '/', search: '?month='+this.state.month+'&year='+this.state.year}} style={{ textDecoration: 'none' }}>
+              <Link to={{pathname: '/trendywords', search: '?month='+this.state.month+'&year='+this.state.year}} style={{ textDecoration: 'none' }}>
                 <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close the Dialog</Button>
               </Link>
             </div>

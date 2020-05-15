@@ -1,20 +1,3 @@
-// import React from 'react';
-// import Card from '@material-ui/core/Card';
-// import CardContent from '@material-ui/core/CardContent';
-
-// class TrendyWords extends React.Component {
-//     render() {
-//         return (
-//             <Card>
-//                 <CardContent>
-//                     TrendyWords
-//                 </CardContent>
-//             </Card>
-//         );
-//     }
-// }
-
-// export default TrendyWords;
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
@@ -27,7 +10,7 @@ import MonthTabs from '../tabs/monthTabs';
 import '../../css/App.css';
 import '../../css/menu.css';
 
-export default class TrendyWords extends React.Component {
+export default class HardWords extends React.Component {
 constructor() {
     super();
   this.state = {selectedMonth:'All', selectedYear: 2016, data: [], activeTab:2016};
@@ -71,7 +54,7 @@ getData(ev, year, month){
 render() {
     return (
       <div>
-        <h1>Trendy Words</h1>
+        <h1>Difficult Words</h1>
         <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
           <Tab eventKey={2016} title={<YearTabsRouter year='2016' />}><MonthTabs year='2016' monthlyActiveTab={this.state.selectedMonth}/></Tab>
           <Tab eventKey={2017} title={<YearTabsRouter year='2017' />}><MonthTabs year='2017' monthlyActiveTab={this.state.selectedMonth}/></Tab>
