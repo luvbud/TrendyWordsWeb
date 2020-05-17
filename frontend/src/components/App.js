@@ -21,8 +21,8 @@ class App extends React.Component {
                 <Route path="/trendywords" component={TrendyWords}/>
                 <Route path="/hardwords" component={HardWords}/>
                 <Route path="/login" component={Login}/>
-                <Route component={NoMatch}/>
                 <Route path="/add-user" component={AddUser}/>
+                <Route component={NoMatch}/>
             </Switch>
         </div>
     </Router>

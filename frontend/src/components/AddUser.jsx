@@ -11,10 +11,7 @@ class AddUser extends Component{
         this.state = {
             userName: '',
             password: '',
-            firstName: '',
-            lastName: '',
-            age: '',
-            salary: '',
+            email: '',
             message: null
         }
     }
@@ -62,18 +59,9 @@ class AddUser extends Component{
                         <TextField type="password" placeholder="please input your password" name="password"
                          fullWidth margin="normal" value={this.state.password} onChange={this.onChange} />
 
-                        <TextField placeholder="please input your first name" name="firstName"
-                         fullWidth margin="normal" value={this.state.firstName} onChange={this.onChange} />
+                        <TextField placeholder="please input your e-mail" name="email"
+                         fullWidth margin="normal" value={this.state.email} onChange={this.onChange} />
 
-                        <TextField placeholder="please input your last name" name="lastName"
-                         fullWidth margin="normal" value={this.state.lastName} onChange={this.onChange} />
-
-                        <TextField type="number" placeholder="please input your age" name="age"
-                         fullWidth margin="normal" value={this.state.age} onChange={this.onChange} />
-
-                        <TextField type="number" placeholder="please input your salary" name="salary"
-                         fullWidth margin="normal" value={this.state.salary} onChange={this.onChange} />
-                
                     <Button variant="contained" color="primary" onClick={this.saveUser}>Save</Button>
                 </form>
             </div>
