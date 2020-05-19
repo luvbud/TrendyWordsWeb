@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ApiService from "../ApiService";
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -9,7 +10,7 @@ class AddUser extends Component{
         super(props);
 
         this.state = {
-            userName: '',
+            username: '',
             password: '',
             email: '',
             message: null
@@ -26,25 +27,22 @@ class AddUser extends Component{
         e.preventDefault();
 
         let user = {
-            userName: this.state.userName,
+            username: this.state.username,
             password: this.state.password,
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            age: this.state.age,
-            salary: this.state.salary,
+            email: this.state.email
         }
 
-        // ApiService.addUser(user)
-        // .then( res => {
-        //     this.setState({
-        //         message: user.userName + '님이 성공적으로 등록되었습니다.'
-        //     })
-        //     console.log(this.state.message);
-        //     this.props.history.push('/users');
-        // })
-        // .catch( err =>{
-        //     console.log('saveUser() error', err)
-        // });
+        ApiService.addUser(user)
+        .then( res => {
+            this.setState({
+                message: user.username + '님이 성공적으로 등록되었습니다.'
+            })
+            console.log(this.state.message);
+            this.props.history.push('/users');
+        })
+        .catch( err =>{
+            console.log('saveUser() error', err)
+        });
     }
 
     render(){
@@ -53,8 +51,8 @@ class AddUser extends Component{
                 <Typography variant="h4" style={style}>Add User</Typography>
                 <form style={formContainer}>
 
-                        <TextField type="text" placeholder="please input your username" name="userName" 
-                         fullWidth margin="normal" value={this.state.userName} onChange={this.onChange} />
+                        <TextField type="text" placeholder="please input your username" name="username" 
+                         fullWidth margin="normal" value={this.state.username} onChange={this.onChange} />
 
                         <TextField type="password" placeholder="please input your password" name="password"
                          fullWidth margin="normal" value={this.state.password} onChange={this.onChange} />

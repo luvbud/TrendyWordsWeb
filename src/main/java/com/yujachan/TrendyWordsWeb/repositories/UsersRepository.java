@@ -1,6 +1,10 @@
 package com.yujachan.TrendyWordsWeb.repositories;
 
-public class UsersRepository {
+import com.yujachan.TrendyWordsWeb.domain.Users;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface UsersRepository extends MongoRepository<Users, String> {
+
 }
 //package com.yujachan.trendywords.DbRepository;
 //

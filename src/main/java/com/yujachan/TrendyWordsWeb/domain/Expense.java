@@ -7,11 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Expense {
 
 	@Id
-	String id;
-	String description;
-	Integer amount;
-	String month;
-	int year;
+	private String id;
+	private String description;
+	private Integer amount;
+	private String month;
+	private int year;
 	
 	public String getId() {
 		return id;
