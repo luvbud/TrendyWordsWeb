@@ -15,7 +15,6 @@ class Login extends Component {
         return (
             <div>
                 <Typography variant="h4" style={style}>login</Typography>
-                <Button variant="contained" color="primary" onClick={this.addUser}> Add User </Button>
                 <form style={formContainer}>
 
                 <TextField type="text" placeholder="please input your username" name="userName" 
@@ -24,6 +23,8 @@ class Login extends Component {
                 <TextField type="password" placeholder="please input your password" name="password"
                     fullWidth margin="normal"/>
                 </form>
+                <Button color="inherit">Login</Button>
+                <Button variant="contained" color="primary" onClick={this.addUser}> Add User </Button>
                 {/* { !this.isLogin && <Redirect to="/login"/> } 로그인 되었습니다. */}
             </div>
         );
