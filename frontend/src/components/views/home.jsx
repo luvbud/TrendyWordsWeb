@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class Home extends Component {
-    render() { 
-        return ( 
-            <div> 홈 </div>
-        );
+    async componentDidMount() {
+        const response = await fetch('/');
+    }
+
+    render() {
+        return (<div>
+            홈
+        </div>);
     }
 }
-    
+
 export default Home;

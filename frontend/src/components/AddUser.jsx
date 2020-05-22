@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+
 import ApiService from "../ApiService";
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import axios from 'axios';
 
 class AddUser extends Component{
     constructor(props) {
@@ -15,6 +18,19 @@ class AddUser extends Component{
             email: '',
             message: null
         }
+    }
+
+    async componentDidMount() {
+        // nothing
+        this.check();
+    }
+
+    go = () => {
+        this.props.history.go(1);
+    }
+
+    goBack = () => {
+        this.props.history.goBack();
     }
 
     onChange = (e) => {
@@ -32,17 +48,37 @@ class AddUser extends Component{
             email: this.state.email
         }
 
-        ApiService.addUser(user)
-        .then( res => {
-            this.setState({
-                message: user.username + '님이 성공적으로 등록되었습니다.'
+        axios.post('/users')
+            .then(res =>{
+                this.setState({
+                    message: user.username + '님이 성공적으로 등록되었습니다.'}
+                )
+                console.log(this.state.message);
+                this.props.history.push('/users');
             })
-            console.log(this.state.message);
-            this.props.history.push('/users');
-        })
-        .catch( err =>{
-            console.log('saveUser() error', err)
-        });
+            .catch( err => {
+                console.log('save error', err);
+                }
+            );
+        // ApiService.addUser(user)
+        // .then( res => {
+        //     this.setState({
+        //         message: user.username + '님이 성공적으로 등록되었습니다.'
+        //     })
+        //     console.log(this.state.message);
+        //     this.props.history.push('/users');
+        // })
+        // .catch( err =>{
+        //     console.log('saveUser() error', err)
+        // });
+    }
+
+    go = () => {
+        this.props.history.go(1);
+    }
+
+    goBack = () => {
+        this.props.history.goBack();
     }
 
     render(){
