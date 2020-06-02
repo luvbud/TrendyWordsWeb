@@ -3,12 +3,12 @@ import {Button} from 'react-bootstrap';
 import Modal from 'react-modal';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
-const querystring = require('querystring');
+import {links} from './link';
 
 class Add extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             description: '',
             amount: '',
@@ -52,7 +52,7 @@ class Add extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.selectedMonth == 'All') {
+        if (this.props.selectedMonth === 'All') {
             this.setState({
                 month: 'Jan'
             });
@@ -67,8 +67,8 @@ class Add extends React.Component {
         });
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.props.selectedMonth == 'All') {
+    componentWillReceiveProps(nextProps, nextContext) {
+        if (this.props.selectedMonth === 'All') {
             this.setState({
                 month: 'Jan'
             });
@@ -84,12 +84,12 @@ class Add extends React.Component {
     }
 
     handleSelectChange(e) {
-        if (e.target.name == 'month') {
+        if (e.target.name === 'month') {
             this.setState({
                 month: e.target.value
             });
         }
-        if (e.target.name == 'year') {
+        if (e.target.name === 'year') {
             this.setState({
                 year: e.target.value
             });
@@ -107,7 +107,7 @@ class Add extends React.Component {
             month: e.state.month,
             year: e.state.year
         }
-        axios.post('http://localhost:8080/trendywords', expense)
+        axios.post(links.serverLink + 'trendywords', expense)
             .then(function (response) {
                 e.setState({
                     messageFromServer: response.data
@@ -116,12 +116,12 @@ class Add extends React.Component {
     }
 
     handleTextChange(e) {
-        if (e.target.name == "description") {
+        if (e.target.name === "description") {
             this.setState({
                 description: e.target.value
             });
         }
-        if (e.target.name == "amount") {
+        if (e.target.name === "amount") {
             this.setState({
                 amount: e.target.value
             });
@@ -129,7 +129,7 @@ class Add extends React.Component {
     }
 
     render() {
-        if (this.state.messageFromServer == '') {
+        if (this.state.messageFromServer === '') {
             return (
                 <div>
                     <Button bsStyle="success" bsSize="small" onClick={this.openModal}>
@@ -144,7 +144,7 @@ class Add extends React.Component {
                             pathname: '/trendywords',
                             search: '?month=' + this.state.month + '&year=' + this.state.year
                         }} style={{textDecoration: 'none'}}>
-                            <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
+                            <Button bsStyle="danger" bsSize="small" onClick={this.closeModal}><span
                                 className="closebtn glyphicon glyphicon-remove"></span></Button>
                         </Link><br/>
                         <fieldset>
@@ -204,7 +204,7 @@ class Add extends React.Component {
                                 pathname: '/trendywords',
                                 search: '?month=' + this.state.month + '&year=' + this.state.year
                             }} style={{textDecoration: 'none'}}>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close the
+                                <Button bsStyle="success" bsSize="small" onClick={this.closeModal}>Close the
                                     Dialog</Button>
                             </Link>
                         </div>

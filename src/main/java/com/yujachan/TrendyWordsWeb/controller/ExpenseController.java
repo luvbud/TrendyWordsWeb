@@ -26,8 +26,7 @@ public class ExpenseController {
 
 	@Autowired
 	ExpenseService expenseService;
-	
-	
+
 	@GetMapping
 	public ResponseEntity<?> getAll() {
 		List<Expense> result = expenseService.findAll();
@@ -55,6 +54,4 @@ public class ExpenseController {
 	public void deleteExpense(@RequestParam("id") String id) {
 		expenseService.deleteExpense(id);
 	}
-	
-
 }
