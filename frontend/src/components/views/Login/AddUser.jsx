@@ -41,7 +41,7 @@ class AddUser extends Component {
             email: this.state.email
         }
 
-        axios.post(links.serverLink + '/users', user)
+        axios.post(links.serverLink + 'users', user)
             .then(res => {
                 this.setState({
                         message: user.username + '님이 성공적으로 등록되었습니다.'

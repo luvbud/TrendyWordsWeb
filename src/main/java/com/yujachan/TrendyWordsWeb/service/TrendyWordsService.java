@@ -1,4 +1,7 @@
 package com.yujachan.TrendyWordsWeb.service;
 
-public interface TrendyWordsService {
+import org.springframework.stereotype.Service;
+
+public class TrendyWordsService {
+
 }

@@ -49,6 +49,8 @@ class TrendyWords extends Component {
             activeTab: selectedTab,
             selectedYear: selectedTab
         });
+
+        this.props.history.push('/trendywords?month=All&year='+selectedTab);
     }
 
     getData(ev, year, month) {
@@ -65,19 +67,35 @@ class TrendyWords extends Component {
             <div>
                 <Typography variant="h4" style={headCss}>TrendyWords</Typography>
                 <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
-                    <Tab eventKey={2016} title={<YearTabsRouter year='2016'/>}>
+                    {/*<Tab eventKey={2016} title={<YearTabsRouter year='2016'/>}>*/}
+                    {/*    <MonthTabs year='2016' monthlyActiveTab={this.state.selectedMonth}/>*/}
+                    {/*</Tab>*/}
+                    {/*<Tab eventKey={2017} title={<YearTabsRouter year='2017'/>}>*/}
+                    {/*    <MonthTabs year='2017' monthlyActiveTab={this.state.selectedMonth}/>*/}
+                    {/*</Tab>*/}
+                    {/*<Tab eventKey={2018} title={<YearTabsRouter year='2018'/>}>*/}
+                    {/*    <MonthTabs year='2018' monthlyActiveTab={this.state.selectedMonth}/>*/}
+                    {/*</Tab>*/}
+                    {/*<Tab eventKey={2019} title={<YearTabsRouter year='2019'/>}>*/}
+                    {/*    <MonthTabs year='2019' monthlyActiveTab={this.state.selectedMonth}/>*/}
+                    {/*</Tab>*/}
+                    {/*<Tab eventKey={2020} title={<YearTabsRouter year='2020'/>}>*/}
+                    {/*    <MonthTabs year='2020' monthlyActiveTab={this.state.selectedMonth}/>*/}
+                    {/*</Tab>*/}
+
+                    <Tab eventKey={2016} title='2016'>
                         <MonthTabs year='2016' monthlyActiveTab={this.state.selectedMonth}/>
                     </Tab>
-                    <Tab eventKey={2017} title={<YearTabsRouter year='2017'/>}>
+                    <Tab eventKey={2017} title='2017'>
                         <MonthTabs year='2017' monthlyActiveTab={this.state.selectedMonth}/>
                     </Tab>
-                    <Tab eventKey={2018} title={<YearTabsRouter year='2018'/>}>
+                    <Tab eventKey={2018} title='2018'>
                         <MonthTabs year='2018' monthlyActiveTab={this.state.selectedMonth}/>
                     </Tab>
-                    <Tab eventKey={2019} title={<YearTabsRouter year='2019'/>}>
+                    <Tab eventKey={2019} title='2019'>
                         <MonthTabs year='2019' monthlyActiveTab={this.state.selectedMonth}/>
                     </Tab>
-                    <Tab eventKey={2020} title={<YearTabsRouter year='2020'/>}>
+                    <Tab eventKey={2020} title='2020'>
                         <MonthTabs year='2020' monthlyActiveTab={this.state.selectedMonth}/>
                     </Tab>
                 </Tabs>
