@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+#Title {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+}
+
 .header {
     background: #5c7cfa;
     display: table;

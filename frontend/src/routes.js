@@ -1,9 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import App from './components/App';
-export const Routes = () => (
+
+const Routes = () => (
     <Switch>
-      <Route exact path='/' component={App} />
+      <Route path='/' component={App} exact={true}/>
     </Switch>
 );
+
 export default Routes;

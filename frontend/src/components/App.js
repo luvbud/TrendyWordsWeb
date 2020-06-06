@@ -1,29 +1,42 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import NavBar from "./views/NavBar";
-import Header from './views/header';
-import Home from './views/home';
-import About from './views/about';
-import TrendyWords from './views/trendywords';
-import HardWords from './views/hardwords';
-import Login from './views/login';
+
+import NavBar from './views/AboutMenu/NavBar';
+import Header from './views/AboutMenu/header';
+import Home from './views/MainFrame/home';
+import About from './views/MainFrame/about';
+import TrendyWords from './views/MainFrame/trendywords';
+import HardWords from './views/MainFrame/hardwords';
+import Login from './views/Login/login';
 import NoMatch from './views/NoMatch';
-import AddUser from './AddUser';
-import Container from '@material-ui/core/Container';
-import axios from 'axios';
+import AddUser from './views/Login/AddUser';
+import '../css/Page.css';
 
-const baseURL = "http://localhost:8080/";
+// 메인 화면 표시하는 곳
+// 컴포넌트 클래스를 가져와 상속하는 방식으로, App 컴포넌트를 만들 수 있다.
+class App extends Component {
+    constructor(props) {
+        super(props);
+        console.log(this.props);
+    }
 
-class App extends React.Component {
+    go = () => {
+        this.props.history.go();
+    }
+
+    goBack = () => {
+        this.props.history.goBack();
+    }
+
     render() {
         return (
-            <Container>
+            <div id="mainBody">
                 <Router>
                     <div>
                         <NavBar/>
                         <Header/>
                         <Switch>
-                            <Route exact="exact" path="/" component={Home}/>
+                            <Route path="/" component={Home} exact={true} />
                             <Route path="/about/:username" component={About}/>
                             <Route path="/trendywords" component={TrendyWords}/>
                             <Route path="/hardwords" component={HardWords}/>
@@ -33,7 +46,7 @@ class App extends React.Component {
                         </Switch>
                     </div>
                 </Router>
-            </Container>
+            </div>
         );
     }
 }
