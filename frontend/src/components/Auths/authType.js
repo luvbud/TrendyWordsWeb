@@ -1,7 +1,0 @@
-// 로그인 성공/실패
-
-export const authType = {
-    AUTH_LOGIN: "AUTH_LOGIN",
-    AUTH_LOGIN_SUCCESS: "AUTH_LOGIN_SUCCESS",
-    AUTH_LOGIN_FAILURE: "AUTH_LOGIN_FAILURE"
-};

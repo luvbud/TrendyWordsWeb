@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class LogInfo extends Component {
     constructor() {
         super();
-        this.state = {'name' : ''};
+        this.state = {name: ''};
     }
 
     componentDidMount() {
