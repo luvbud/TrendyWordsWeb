@@ -3,6 +3,7 @@ package com.yujachan.TrendyWordsWeb.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.yujachan.TrendyWordsWeb.dao.ExpenseServiceInterface;
 import com.yujachan.TrendyWordsWeb.model.Expense;
 import com.yujachan.TrendyWordsWeb.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +24,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/trendywords")
 public class ExpenseController {
 
-	private final ExpenseService expenseService;
+	private final ExpenseServiceInterface expenseServiceInterface;
 
 	@Autowired
-	public ExpenseController(ExpenseService expenseService) {
-		this.expenseService = expenseService;
+	public ExpenseController(ExpenseServiceInterface expenseServiceInterface) {
+		this.expenseServiceInterface = expenseServiceInterface;
 	}
 
 	@GetMapping
 	public ResponseEntity<?> getAll() {
-		List<Expense> result = expenseService.findAll();
+		List<Expense> result = expenseServiceInterface.findAll();
 		return new ResponseEntity(result, HttpStatus.OK);
 	}
 	
@@ -40,21 +41,21 @@ public class ExpenseController {
 	public ResponseEntity<?> getByMonthYear(@PathVariable("year") int year, @PathVariable("month") String month) {
 		List<Expense> result = new ArrayList<>();
 		if("All".equals(month)) {
-			result = expenseService.findByYear(year);
+			result = expenseServiceInterface.findByYear(year);
 		} else {
-			result = expenseService.findByMonthAndYear(month, year);			
+			result = expenseServiceInterface.findByMonthAndYear(month, year);
 		}
 		return new ResponseEntity(result, HttpStatus.OK);
 	}
 	
 	@PostMapping
 	public ResponseEntity<?> addorUpdateExpense(@RequestBody Expense expense) {
-		expenseService.saveOrUpdateExpense(expense);
+		expenseServiceInterface.saveOrUpdateExpense(expense);
 		return new ResponseEntity("Expense added succcessfully", HttpStatus.OK);
 	}
 	
 	@DeleteMapping
 	public void deleteExpense(@RequestParam("id") String id) {
-		expenseService.deleteExpense(id);
+		expenseServiceInterface.deleteExpense(id);
 	}
 }

@@ -26,10 +26,10 @@ class TrendyWords extends Component {
             let search = nextProps.history.location.search;
             search = search.substring(1);
             let searchObj = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
+
             this.setState({activeTab: parseInt(searchObj.year, 10)});
             this.setState({selectedYear: searchObj.year});
             this.setState({selectedMonth: searchObj.month});
-
             this.getData(this, searchObj.year, searchObj.month);
         } else {
             this.getData(this, 2016, 'All');
@@ -50,7 +50,7 @@ class TrendyWords extends Component {
             selectedYear: selectedTab
         });
 
-        this.props.history.push('/trendywords?month=All&year='+selectedTab);
+        this.props.history.push('/trendywords?month=All&year=' + selectedTab);
     }
 
     getData(ev, year, month) {
@@ -84,19 +84,19 @@ class TrendyWords extends Component {
                     {/*</Tab>*/}
 
                     <Tab eventKey={2016} title='2016'>
-                        <MonthTabs year='2016' monthlyActiveTab={this.state.selectedMonth}/>
+                        {/*<MonthTabs year='2016' monthlyActiveTab={this.state.selectedMonth}/>*/}
                     </Tab>
                     <Tab eventKey={2017} title='2017'>
-                        <MonthTabs year='2017' monthlyActiveTab={this.state.selectedMonth}/>
+                        {/*<MonthTabs year='2017' monthlyActiveTab={this.state.selectedMonth}/>*/}
                     </Tab>
                     <Tab eventKey={2018} title='2018'>
-                        <MonthTabs year='2018' monthlyActiveTab={this.state.selectedMonth}/>
+                        {/*<MonthTabs year='2018' monthlyActiveTab={this.state.selectedMonth}/>*/}
                     </Tab>
                     <Tab eventKey={2019} title='2019'>
-                        <MonthTabs year='2019' monthlyActiveTab={this.state.selectedMonth}/>
+                        {/*<MonthTabs year='2019' monthlyActiveTab={this.state.selectedMonth}/>*/}
                     </Tab>
                     <Tab eventKey={2020} title='2020'>
-                        <MonthTabs year='2020' monthlyActiveTab={this.state.selectedMonth}/>
+                        {/*<MonthTabs year='2020' monthlyActiveTab={this.state.selectedMonth}/>*/}
                     </Tab>
                 </Tabs>
                 <Add selectedMonth={this.state.selectedMonth} selectedYear={this.state.selectedYear}/>

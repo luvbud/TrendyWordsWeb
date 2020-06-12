@@ -5,17 +5,22 @@ import Typography from '@material-ui/core/Typography'
 import axios from 'axios';
 import {links} from '../../link';
 import '../../../css/login.css'
+import { red } from '@material-ui/core/colors';
 
 class AddUser extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            nickname: '',
             username: '',
             password: '',
             email: '',
-            message: null
+            message: ''
         }
+
+        this.saveUser = this.saveUser.bind(this);
+        this.isDuplicate = this.isDuplicate.bind(this);
     }
 
     go = () => {
@@ -32,49 +37,84 @@ class AddUser extends Component {
         })
     }
 
+    isDuplicate = (e) => {
+        e.preventDefault();
+
+        let id = this.state.nickname;
+
+        if(id != ''){
+            axios.post(links.serverLink + 'users/' + id)
+            .then(res => {
+                if(!res.data){
+                    this.setState({
+                        message: id + '는 사용할 수 없습니다.'
+                    })
+                }else{
+                    this.setState({
+                        message: id + '는 사용 가능합니다.'
+                    })
+                }
+            })
+            .catch(err => {
+                }
+            );
+        }else{
+            this.setState({
+                message: 'id를 입력하세요.'
+            })
+        }
+    }
+
     saveUser = (e) => {
         e.preventDefault();
 
         let user = {
-            username: this.state.username,
-            password: this.state.password,
-            email: this.state.email
+            'nickname': this.state.nickname,
+            'username': this.state.username,
+            'password': this.state.password,
+            'email': this.state.email
         }
 
-        axios.post(links.serverLink + 'users', user)
+        if(user.nickname === '' || user.username === '' || user.password === '' || user.email === ''){
+            for(let key in user){
+                if(user[key] === ''){
+                    this.setState({
+                        message: key + '를 입력하세요.'
+                    })
+                    break;
+                }
+            }
+        }else{
+            axios.post(links.serverLink + 'users', user)
             .then(res => {
-                this.setState({
-                        message: user.username + '님이 성공적으로 등록되었습니다.'
-                    }
-                )
-                console.log(this.state.message);
-                this.props.history.push('/users');
+                
             })
             .catch(err => {
-                    console.log(links.serverLink + '/uses');
-                    console.log('save error', err);
+                    console.log('Database Save Error', err);
                 }
             );
-    }
-
-    go = () => {
-        this.props.history.go(1);
-    }
-
-    goBack = () => {
-        this.props.history.goBack();
+        }
     }
 
     render() {
+
+        const showMessage = (
+            <p style={{color:'red'}}>{this.state.message}</p>
+        );
+
         return (
             <div>
                 <Typography variant="h4" id="login" style={style}>Add User</Typography>
                 <div style={divStyle}>
+                    {showMessage}
                     <form style={formContainer}>
+                        <TextField style={widthOption} type="text" placeholder="please input your id"
+                                   name="nickname"
+                                   fullWidth margin="normal" value={this.state.nickname} onChange={this.onChange}/>
+                        <Button color="inherit" onClick={this.isDuplicate}>Confirm</Button>
                         <TextField style={widthOption} type="text" placeholder="please input your username"
                                    name="username"
                                    fullWidth margin="normal" value={this.state.username} onChange={this.onChange}/>
-
                         <TextField style={widthOption} type="password" placeholder="please input your password"
                                    name="password"
                                    fullWidth margin="normal" value={this.state.password} onChange={this.onChange}/>
@@ -109,15 +149,15 @@ const divStyle = {
     marginTop: '40px',
     marginLeft: '150px',
     marginRight: '150px',
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'center',
+    display: 'block',
+    alignItems: 'center',
+    textAlign: 'center'
 };
 
 const formContainer = {
     display: 'flex',
     flexFlow: 'column',
-    justifyContent: 'center',
+    alignItems: 'center'
 }
 
 const style = {

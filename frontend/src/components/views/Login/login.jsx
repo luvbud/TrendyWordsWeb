@@ -1,18 +1,26 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import '../../../css/login.css'
 
 class Login extends Component {
-    componentDidMount() {
-        console.log("Login mount");
+    constructor(props){
+        super(props);
+
+        this.state = {
+            userName: '',
+            password: '',
+            hasLoginFailed: false,
+            showSuccessMessage: false
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.loginClicked = this.loginClicked.bind(this);
     }
 
-    state = {
-        userName: '',
-        password: ''
+    componentDidMount() {
+        console.log("Login mount");
     }
 
     handleChange = (e) => {
@@ -21,38 +29,22 @@ class Login extends Component {
         this.setState(nextState);
     }
 
-    handleRegister = () => {
-        let id = this.state.userName;
-        let pw = this.state.password;
-
-        this.props.onRegister(id, pw).then(
-            (result) => {
-                if(!result){
-                    this.setState(
-                        {
-                            userName: '',
-                            password: ''
-                        });
-                }
-            }
-        );
+    loginClicked = () => {
+        
     }
 
-    isLogin = false;
-
     addUser = () => {
-        window
-            .localStorage
-            .removeItem("UserID");
-        this
-            .props
-            .history
-            .push('/add-user');
+        this.props.history.push('/add-user');
     }
 
     render() {
+        const successMessage = (
+            <p> ID와 비밀번호를 입력하세요. </p>
+        );
+
         const inputLoginBox = (
                 <div style={divStyle}>
+                    {successMessage}
                     <form style={formContainer}>
                         <TextField
                             type="text"
@@ -69,7 +61,7 @@ class Login extends Component {
                             margin="normal"/>
                     </form>
                     <div style={buttonDiv}>
-                        <Button color="inherit">Login</Button>
+                        <Button color="inherit" onClick={this.loginClicked}>Login</Button>
                         <Button color="inherit" onClick={this.addUser}>
                             Add User
                         </Button>
@@ -85,18 +77,6 @@ class Login extends Component {
         );
     }
 }
-
-Login.propTypes = {
-    mode: PropTypes.bool,
-    onRegister: PropTypes.func
-};
-
-Login.defaultProps = {
-    mode: true,
-    onRegister: (id, pw) => {
-        console.error("register function is not defined");
-    }
-};
 
 const widthOption = {
     width: '400px',
@@ -116,7 +96,8 @@ const divStyle = {
     marginLeft: '150px',
     marginRight: '150px',
     display: 'block',
-    alignItems: 'center'
+    alignItems: 'center',
+    textAlign: 'center'
 };
 
 const formContainer = {
